@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
+import {ProductoInterface} from '../models/producto-interface';
+
 import {AuthService } from './auth.service';
 
 @Injectable({
@@ -32,12 +34,12 @@ export class DataApiService {
     return (this.producto = this.http.get(url_api));
   }
 
-  saveProducto(producto) {
+  saveProducto(producto: ProductoInterface) {
     //TODO: Obtener token
     //TODO not null
     let token= this.authService.getToken();
     const url_api = `http://localhost:3000/api/productos?acces_token=${token}`;
-    return this.http.post(url_api, producto, {headers: this.headers})
+    return this.http.post<ProductoInterface>(url_api, producto, {headers: this.headers})
       .pipe(map(data=> data));
   }
 
@@ -46,7 +48,7 @@ export class DataApiService {
     //TODO not null
     let token= this.authService.getToken();
     const url_api = `http://localhost:3000/api/productos?acces_token=${token}`;
-    return this.http.put(url_api, producto, {headers: this.headers})
+    return this.http.put<ProductoInterface>(url_api, producto, {headers: this.headers})
       .pipe(map(data=> data));
   }
 
@@ -55,7 +57,7 @@ export class DataApiService {
     //TODO not null
     let token= this.authService.getToken();
     const url_api = `http://localhost:3000/api/productos?acces_token=${token}`;
-    return this.http.delete(url_api, {headers: this.headers})
+    return this.http.delete<ProductoInterface>(url_api, {headers: this.headers})
       .pipe(map(data=> data));
   }
 
