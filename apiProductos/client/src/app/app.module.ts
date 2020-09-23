@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 //Services
 import { DataApiService } from 'src/app/services/data-api.service';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 
 
@@ -32,7 +33,8 @@ import { ContactoComponent } from './components/contacto/contacto.component';
     RegisterComponent,
     ProfileComponent,
     Page404Component,
-    ContactoComponent
+    ContactoComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+#productos{
+  border-radius: 0.25rem;
+  background: #f9f9f9 !import;
+}
+section{
+  padding: 20px 0;
+}
+
+#productos .card{
+  border:none;
+  background: #fff;
+}
+.card_producto{
+  position: relative;
+  -webkit-transform: rotateY(0deg);
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+.card-title{
+  color: #007bff;
+  cursosr:pointer;
+}
