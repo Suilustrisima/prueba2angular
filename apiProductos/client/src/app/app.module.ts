@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataApiService } from 'src/app/services/data-api.service';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { HeroComponent } from './components/hero/hero.component';
-
+import { FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -39,7 +39,8 @@ import { HeroComponent } from './components/hero/hero.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DataApiService],
   bootstrap: [AppComponent]

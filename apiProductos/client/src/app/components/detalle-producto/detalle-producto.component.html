@@ -1,1 +1,22 @@
-<p>detalle-producto works!</p>
+<section id="productos">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto" >
+        <div class="card_producto">
+          <div class="card">
+            <div class="card-body text-center">
+              <p>
+                <img class= "img-fluid" src="{{producto.color}}" alt="{{producto.tipo}}">
+              </p>
+              <h4 routerLink="/producto/{{producto.id}}" class="card-title">{{producto.tipo}}</h4>
+              <p class="card-text">
+                {{producto.marca}}
+              </p>
+              <a href="#" class="btn-bloc tn-primary" target="_blank">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
