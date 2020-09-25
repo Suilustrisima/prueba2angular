@@ -1,0 +1,64 @@
+<!-- Modal -->
+<div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva Prenda</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-producto" #formProducto="ngForm" (ngSubmit)="onSaveProducto(formProducto)">
+          <input type="hidden" id="productoId" class="form-control" name="productoId"
+          [(ngModel)]="this.dataApiService.selectedProducto.id">
+
+          <div class="form-group">
+            <label for="">Tipo de Prenda</label>
+            <select name="tipo" id="tipo" class="form-control"
+            [(ngModel)]="this.dataApiService.selectedProducto.tipo">
+              <option value=">Short">Short</option>
+              <option value="Pantalon">Pantalón</option>
+              <option value="Camiseta">Camiseta</option>
+              <option value="Camisa">Camisa</option>
+              <option value="Medias">Medias</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="">Marca</label>
+              <select name="marca" id="marca" class="form-control"
+              [(ngModel)]="this.dataApiService.selectedProducto.marca">
+                <option value="Zara"> Zara</option>
+                <option value="Adiddas">Adiddas</option>
+                <option value="Rebook">Rebook</option>
+                <option value="American Eagle">American Eagle</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="precio">Precio</label>
+              <input type="text" id="precio" name="precio" class="form-control" placeholder="$0.00"
+              [(ngModel)]="this.dataApiService.selectedProducto.precio">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="">Link de la Imagen</label>
+            <input id="color" name="color" class="form-control" type="text" placeholder="Link de Imagen"
+            [(ngModel)]="this.dataApiService.selectedProducto.color">
+          </div>
+
+
+          <button type="submit" class="btn btn-primary float-right">Guardar prenda</button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--[(ngModel)]="this.dataApiService.selectedProducto.id"-->

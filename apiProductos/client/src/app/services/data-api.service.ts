@@ -3,19 +3,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
-import {ProductoInterface} from '../models/producto-interface';
-
-import {AuthService } from './auth.service';
+import { ProductoInterface } from '../models/producto-interface';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
+  constructor(private http: HttpClient, private authService: AuthService) { }
+
   productos: Observable<any>;
   producto: Observable<any>;
 
+  public selectedProducto: ProductoInterface = {
+    id: null,
+    tipo: "",
+    marca: "",
+    color: ""
+  };
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
 
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json",
@@ -37,28 +43,29 @@ export class DataApiService {
   saveProducto(producto: ProductoInterface) {
     //TODO: Obtener token
     //TODO not null
-    let token= this.authService.getToken();
+    let token = this.authService.getToken();
     const url_api = `http://localhost:3000/api/productos?acces_token=${token}`;
-    return this.http.post<ProductoInterface>(url_api, producto, {headers: this.headers})
-      .pipe(map(data=> data));
+    return this.http.post<ProductoInterface>(url_api, producto, { headers: this.headers })
+      .pipe(map(data => data));
   }
 
   updateProducto(producto) {
     //TODO: Obtener token
     //TODO not null
-    let token= this.authService.getToken();
-    const url_api = `http://localhost:3000/api/productos?acces_token=${token}`;
-    return this.http.put<ProductoInterface>(url_api, producto, {headers: this.headers})
-      .pipe(map(data=> data));
+    const productoId= producto.productoId;
+    const token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/productos/${productoId}/?acces_token=${token}`;
+    return this.http.put<ProductoInterface>(url_api, producto, { headers: this.headers })
+      .pipe(map(data => data));
   }
 
   deleteProducto(id: string) {
     //TODO: Obtener token
     //TODO not null
-    let token= this.authService.getToken();
-    const url_api = `http://localhost:3000/api/productos?acces_token=${token}`;
-    return this.http.delete<ProductoInterface>(url_api, {headers: this.headers})
-      .pipe(map(data=> data));
+    let token = this.authService.getToken();
+    const url_api = `http://localhost:3000/api/productos/${id}?acces_token=${token}`;
+    return this.http.delete<ProductoInterface>(url_api, { headers: this.headers })
+      .pipe(map(data => data));
   }
 
 

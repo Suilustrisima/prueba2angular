@@ -19,6 +19,7 @@ import { DataApiService } from 'src/app/services/data-api.service';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { FormsModule} from "@angular/forms";
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { FormsModule} from "@angular/forms";
     ProfileComponent,
     Page404Component,
     ContactoComponent,
-    HeroComponent
+    HeroComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
