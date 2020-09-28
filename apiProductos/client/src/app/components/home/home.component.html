@@ -12,7 +12,12 @@
               <p class="card-text">
                 {{producto.marca}}
               </p>
-              <a href="#" class="btn-bloc tn-primary" target="_blank">Comprar</a>
+              <p>
+                Precio unitario: {{producto.precio}} USD
+              </p>
+              <button type="button">
+                <span routerLink= "/producto/{{producto.id}}">Añadir al carrito</span>
+              </button>
             </div>
           </div>
         </div>

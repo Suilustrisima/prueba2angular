@@ -1,0 +1,35 @@
+<h2>Carro de Compras</h2>
+<div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of ramm; index as i;"  [attr.id]="producto.tipo">
+                <th scope="row">{{i+1}}</th>
+                <td>{{producto.tipo}}</td>
+                <td>{{producto.marca}}</td>
+                <td>${{producto.precio}}</td>
+                <td>{{producto.cantidad}}</td>
+                <td>
+                  <button class="btn btn-primary"
+                   (click) = "onClickDelete(producto.tipo)" >Eliminar</button>
+                </td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <app-modal></app-modal>
+  

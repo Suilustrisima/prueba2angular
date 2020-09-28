@@ -12,7 +12,13 @@
               <p class="card-text">
                 {{producto.marca}}
               </p>
-              <a href="#" class="btn-bloc tn-primary" target="_blank">Comprar</a>
+              <p class="card-text">
+                Precio unitario: {{producto.precio}} USD
+              </p>
+              <p>Cantidad: <input type="number" id="cantidad" (keyup)="onKey($event)" (oninput)="onClick($event)"></p>
+              <button type="button" (click)="saveProductoToCart()">
+                <span>Añadir al carrito</span>
+              </button>
             </div>
           </div>
         </div>
